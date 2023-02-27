@@ -1,0 +1,1 @@
+Repositório para projetos de Teoria da Computação
