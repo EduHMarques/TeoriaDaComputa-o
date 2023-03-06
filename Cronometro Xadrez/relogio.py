@@ -15,8 +15,8 @@ white = (255, 255, 255)
 black = (0, 0, 0)
 red = (255, 0, 0)
 
-screen = pygame.display.set_mode((X_screen, Y_screen))
 pygame.display.set_caption('Relogio analogico')
+screen = pygame.display.set_mode((X_screen, Y_screen))
 clock = pygame.time.Clock()
 FPS = 60
 
@@ -62,9 +62,7 @@ def relogio():
         theta = seconds * (360/60)
         pygame.draw.line(screen, (0, 255, 0), (X_half, Y_half), grausPygame(R, theta), 8)
 
-
         pygame.display.update()
         clock.tick(FPS)
-
 
 relogio()
