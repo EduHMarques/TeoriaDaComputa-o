@@ -34,6 +34,20 @@ def grausPygame(R, theta):
 
     return x+236-9, 368-y-12                # Valores para ajustar ao centro
 
+def openClock():
+    bg_image = pg.image.load("cuckoo-clock.png").convert()
+    width = bg_image.get_rect().width
+    height = bg_image.get_rect().height
+    bg_image = pg.transform.scale(bg_image, (width*1.5, height*1.5)) 
+    display.blit(bg_image, (0, 0))
+
+def closedClock():
+    bg_image = pg.image.load("cuckoo-clock-fechado.png").convert()
+    width = bg_image.get_rect().width
+    height = bg_image.get_rect().height
+    bg_image = pg.transform.scale(bg_image, (width*1.5, height*1.5)) 
+    display.blit(bg_image, (0, 0))
+
 pg.display.flip()
 
 def game():
@@ -52,12 +66,10 @@ def game():
         
         display.fill(white)
         
-        # Background image
-        bg_image = pg.image.load("cuckoo-clock.png").convert()
-        width = bg_image.get_rect().width
-        height = bg_image.get_rect().height
-        bg_image = pg.transform.scale(bg_image, (width*1.5, height*1.5)) 
-        display.blit(bg_image, (0, 0))
+        if (isPlaying):
+            openClock()
+        else:
+            closedClock()
         
         pg.draw.circle(display, (0, 0, 0), center, 127, 4)
 
@@ -68,7 +80,7 @@ def game():
             isPlaying = True
             cuckoo_sound.play()
 
-        if (seconds == 10 and isPlaying):
+        if (seconds == 11 and isPlaying):
             isPlaying = False
             cuckoo_sound.stop()
 
