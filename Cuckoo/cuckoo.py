@@ -15,8 +15,7 @@ white = (255, 255, 255)
 black = (0, 0, 0)
 red = (255, 0, 0)
 
-pg.mixer.init(frequency=48000)
-cuckoo_sound = pg.mixer.Sound('cuckoo_sound.mp3')
+cuckoo_sound = pg.mixer.Sound('Cuckoo/cuckoo_sound.mp3')
 
 pg.display.set_caption("Clock")
 display = pg.display.set_mode((X, Y))
@@ -29,20 +28,20 @@ def printNumbers(text, position):
     display.blit(surface, position)
 
 def grausPygame(R, theta):
-    y = math.cos(2*math.pi*theta/360) * R
     x = math.sin(2*math.pi*theta/360) * R
+    y = math.cos(2*math.pi*theta/360) * R
 
     return x+236-9, 368-y-12                # Valores para ajustar ao centro
 
 def openClock():
-    bg_image = pg.image.load("cuckoo-clock.png").convert()
+    bg_image = pg.image.load("Cuckoo/cuckoo-clock.png").convert()
     width = bg_image.get_rect().width
     height = bg_image.get_rect().height
     bg_image = pg.transform.scale(bg_image, (width*1.5, height*1.5)) 
     display.blit(bg_image, (0, 0))
 
 def closedClock():
-    bg_image = pg.image.load("cuckoo-clock-fechado.png").convert()
+    bg_image = pg.image.load("Cuckoo/cuckoo-clock-fechado.png").convert()
     width = bg_image.get_rect().width
     height = bg_image.get_rect().height
     bg_image = pg.transform.scale(bg_image, (width*1.5, height*1.5)) 
